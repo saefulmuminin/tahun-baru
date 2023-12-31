@@ -7,10 +7,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const minutesElement = document.getElementById('minutes');
     const secondsElement = document.getElementById('seconds');
 
-    // Set countdown time to 20 seconds from now
+    // Set countdown time to New Year (1 Januari tahun berikutnya)
     const currentDate = new Date();
-    const newYearDate = new Date(currentDate.getTime() + 20000); // Adding 20 seconds (20,000 milliseconds) to the current time
+    const newYearDate = new Date(currentDate.getFullYear() + 1, 0, 1);
 
+    // Fungsi untuk menggulir dari atas ke bawah otomatis
+    function autoScroll() {
+        document.documentElement.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+        });
+    }
+
+    // Fungsi untuk memperbarui penurunan waktu
     function updateCountdown() {
         const currentDate = new Date();
         const timeRemaining = newYearDate - currentDate;
@@ -36,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Fungsi untuk menampilkan ucapan terima kasih
     function showGreetings() {
         countdownElement.style.display = 'none';
         greetingsElement.style.display = 'block';
@@ -46,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
         autoScroll();
     }
 
+    // Fungsi untuk memainkan backsound
     function playBacksound() {
         const audio = new Audio('2.mp3');
         audio.preload = 'auto';
@@ -57,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
         audio.play();
     }
 
+    // Fungsi untuk menampilkan ucapan terima kasih
     function showThankYou() {
         const thankYouElement = document.createElement('div');
         thankYouElement.innerHTML = `
@@ -67,9 +79,8 @@ document.addEventListener('DOMContentLoaded', function () {
         greetingsElement.appendChild(thankYouElement);
     }
 
-    function autoScroll() {
-        $('html, body').animate({ scrollTop: $(document).height() }, 10000);
-    }
-
+    // Memulai interval countdown dan menyimpan referensi ke countdownInterval
     const countdownInterval = setInterval(updateCountdown, 1000);
+
+    // updateCountdown(); // Ini seharusnya tidak diperlukan karena kita menggunakan setInterval
 });
