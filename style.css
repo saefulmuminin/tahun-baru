@@ -1,0 +1,49 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: scroll; /* Mengatasi scrollbar yang muncul pada body */
+}
+
+.fullscreen-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-overlay {
+    background: rgba(0, 0, 0, 0.75); /* Hitam dengan opacity 0.75 */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.bg-image {
+    background: url('1.jpg') center/cover no-repeat fixed;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    position: relative; /* Memastikan posisi absolute pada .bg-overlay merujuk ke .bg-image */
+}
+
+h1,
+p {
+    font-family: 'Great Vibes', cursive;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#greetings {
+    margin-top: 20px;
+}
+
+.selamat {
+    font-size: 60px;
+}
